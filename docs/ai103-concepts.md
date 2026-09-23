@@ -118,7 +118,7 @@ The main AI-103 components are:
 
 Student  
 ↓  
-React + Vite Frontend  
+Frontend (Vite + Vanilla JavaScript)  
 ↓  
 FastAPI Backend  
 ↓  
@@ -149,7 +149,7 @@ The retrieved information is then used to generate the final grounded response.
 | Agent Platform | Microsoft Foundry |
 | Backend Integration | Azure AI Projects SDK |
 | Backend | FastAPI |
-| Frontend | React + Vite |
+| Frontend | Vite + Vanilla JavaScript (HTML/CSS/JS, no framework) |
 | Dataset | Synthetic placement dataset |
 
 ---

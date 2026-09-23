@@ -75,9 +75,11 @@ Verified against the actual frontend/backend code and the screenshots in this re
 - **Live agent-online/offline indicator** — periodic health check against the backend (`frontend/app.js`)
 - **Graceful error handling** — timeouts, offline detection, and failed requests show a retry option instead of a broken UI
 
-## Architecture / Data Flow
 
-![Architecture diagram](docs/architecture.png)
+
+## Architecture
+
+![Campus Placement Assistant Architecture](architecture.png)
 
 ```
 Student
