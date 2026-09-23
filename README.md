@@ -79,7 +79,7 @@ Verified against the actual frontend/backend code and the screenshots in this re
 
 ## Architecture
 
-![Campus Placement Assistant Architecture](architecture.png)
+![Campus Placement Assistant Architecture](docs/architecture.png)
 
 ```
 Student
