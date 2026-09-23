@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ask about placement eligibility, CGPA and backlog rules, visiting companies and the placement process." />
+  <meta name="theme-color" content="#17213a" />
+  <title>Campus Placement Agent</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%2317213a'/><text x='16' y='21' font-size='13' text-anchor='middle' fill='%23b8863b' font-family='Georgia,serif' font-weight='600'>CA</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <button class="brand" id="brand-home" type="button" aria-label="Campus Placement Agent home">
+          <span class="brand-mark">CA</span>
+          <span class="brand-title">Campus Placement Agent</span>
+        </button>
+        <div class="topbar-actions">
+          <span class="status-pill" id="status-pill" role="status" aria-live="polite">
+            <span class="status-dot checking" id="status-dot"></span>
+            <span id="status-text">Checking…</span>
+          </span>
+          <button class="new-chat-btn" id="new-chat-btn" type="button" hidden>New chat</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Landing screen -->
+    <section class="landing" id="landing">
+      <div class="hero">
+        <div class="hero-copy">
+          <h1 class="hero-headline">Your placement questions, answered in seconds.</h1>
+          <p class="hero-sub">
+            Check whether you're eligible for a drive, what CGPA and backlog rules apply,
+            which companies are visiting, and what happens at each stage of the process.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" id="start-chat-btn" type="button">Start a chat</button>
+            <a class="btn-ghost" href="#questions">Browse common questions</a>
+          </div>
+          <ul class="hero-facts">
+            <li>No sign-in needed</li>
+            <li>Answers from the placement policy documents</li>
+            <li>Available any time</li>
+          </ul>
+        </div>
+
+        <!-- A static preview of what a conversation looks like -->
+        <div class="preview" aria-hidden="true">
+          <div class="preview-head">
+            <span class="preview-mark">CA</span>
+            <div>
+              <p class="preview-name">Placement Agent</p>
+              <p class="preview-sub">Replies in a few seconds</p>
+            </div>
+          </div>
+          <div class="preview-body">
+            <p class="preview-user">I have a 6.8 CGPA and one active backlog. Can I still sit for placements?</p>
+            <div class="preview-agent">
+              <p>It depends on the company. Each drive lists two checks:</p>
+              <ul>
+                <li><strong>Minimum CGPA</strong> for the drive</li>
+                <li><strong>Backlog rule</strong>: whether active backlogs are allowed</li>
+              </ul>
+              <p>Tell me which company you're looking at and I'll check both for you.</p>
+            </div>
+          </div>
+          <div class="preview-input">
+            <span>Ask about eligibility, companies…</span>
+            <span class="preview-send"></span>
+          </div>
+        </div>
+      </div>
+
+      <section class="questions" id="questions" aria-labelledby="questions-title">
+        <div class="questions-intro">
+          <h2 id="questions-title">Questions students ask most</h2>
+          <p>Pick one to start a chat with it, or write your own.</p>
+        </div>
+
+        <div class="question-groups">
+          <div class="question-group">
+            <h3>Eligibility</h3>
+            <button class="question" type="button" data-prompt="What CGPA do I need to be eligible for placements?">What CGPA do I need to be eligible?</button>
+            <button class="question" type="button" data-prompt="Can I sit for placements if I have an active backlog?">Can I sit for placements with a backlog?</button>
+            <button class="question" type="button" data-prompt="Who is eligible to register for campus placements?">Who can register for placements?</button>
+          </div>
+          <div class="question-group">
+            <h3>Companies</h3>
+            <button class="question" type="button" data-prompt="Which companies are visiting for placements?">Which companies are visiting this season?</button>
+            <button class="question" type="button" data-prompt="What are the eligibility criteria and roles offered by the visiting companies?">What roles and criteria do companies list?</button>
+          </div>
+          <div class="question-group">
+            <h3>Process</h3>
+            <button class="question" type="button" data-prompt="What is the campus placement process, step by step?">How does the placement process work?</button>
+            <button class="question" type="button" data-prompt="What are the rules after I receive a placement offer?">What are the rules once I get an offer?</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="landing-footer">
+        <p>AI-101 academic project. Answers are generated by an AI agent and can be wrong. Confirm deadlines and final eligibility with your Training &amp; Placement Cell.</p>
+      </footer>
+    </section>
+
+    <!-- Chat screen (hidden until a chat starts) -->
+    <main class="chat" id="chat-screen" hidden>
+      <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+
+      <div class="chat-composer">
+        <div class="chat-input-bar">
+          <label for="chat-input" class="visually-hidden">Message</label>
+          <textarea
+            id="chat-input"
+            class="chat-input"
+            placeholder="Ask about eligibility, companies, or the placement process…"
+            rows="1"
+            maxlength="2000"
+          ></textarea>
+          <button class="send-btn" id="send-btn" type="button" aria-label="Send message" disabled>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 13V3M8 3L3.5 7.5M8 3l4.5 4.5" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <p class="input-hint">Enter to send, Shift + Enter for a new line. Answers can be wrong, so confirm important details with the Placement Cell.</p>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

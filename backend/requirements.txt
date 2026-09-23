@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic
+azure-identity
+azure-ai-projects>=2.3.0
